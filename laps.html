@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Vortex — Laps</title>
+  <meta name="description" content="Vortex laps page — view and export laps" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- NAV (same nav; active item changes automatically via script) -->
+  <nav id="mainNav" class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html" aria-label="Vortex Home">Vortex</a>
+      <ul class="nav-links" role="menubar">
+        <li role="none"><a role="menuitem" href="index.html" class="nav-link" data-target="home">Home</a></li>
+        <li role="none"><a role="menuitem" href="index.html#stopwatch" class="nav-link" data-target="stopwatch">Stopwatch</a></li>
+        <li role="none"><a role="menuitem" href="laps.html" class="nav-link active" data-target="laps">Laps</a></li>
+        <li role="none"><button id="navExport" class="nav-link btn-like" title="Export CSV">Export</button></li>
+      </ul>
+      <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    </div>
+  </nav>
+
+  <div class="bg-image" aria-hidden="true"></div>
+  <div class="bg-overlay" aria-hidden="true"></div>
+
+  <main class="frame" role="main" aria-live="polite">
+    <section id="lapsOnly" class="center center-laps" aria-label="Laps page">
+      <div class="lap-page-card">
+        <h1 class="page-title">Laps</h1>
+
+        <div class="lap-actions">
+          <button id="copyBtn" class="btn tiny">Copy</button>
+          <button id="exportBtn" class="btn tiny">Export</button>
+          <button id="clearBtn" class="btn tiny ghost">Clear</button>
+        </div>
+
+        <ol id="lapsList" class="laps fullscreen-laps" aria-live="polite"></ol>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

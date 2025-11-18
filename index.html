@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Vortex — Stopwatch</title>
+  <meta name="description" content="Vortex Stopwatch — accurate timer with lap support." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- NAV -->
+  <nav id="mainNav" class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html" aria-label="Vortex Home">Vortex</a>
+      <ul class="nav-links" role="menubar">
+        <li role="none"><a role="menuitem" href="index.html" class="nav-link" data-target="home">Home</a></li>
+        <li role="none"><a role="menuitem" href="index.html#stopwatch" class="nav-link active" data-target="stopwatch">Stopwatch</a></li>
+        <li role="none"><a role="menuitem" href="laps.html" class="nav-link" data-target="laps">Laps</a></li>
+        <li role="none"><button id="navExport" class="nav-link btn-like" title="Export CSV">Export</button></li>
+      </ul>
+      <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    </div>
+  </nav>
+
+  <!-- full-screen background -->
+  <div class="bg-image" aria-hidden="true"></div>
+  <div class="bg-overlay" aria-hidden="true"></div>
+
+  <!-- MAIN -->
+  <main id="home" class="frame" role="main" aria-live="polite">
+    <section id="stopwatch" class="center" aria-label="Stopwatch">
+      <div class="card" id="card" role="region" aria-labelledby="vortexTitle">
+        <h1 id="vortexTitle" class="visually-hidden">Vortex Stopwatch</h1>
+
+        <div class="quote">Every Second Counts</div>
+
+        <div class="timer-wrap" tabindex="0">
+          <div id="display" class="display" role="timer" aria-atomic="true">00:00:00.000</div>
+          <div id="glow" class="display-glow" aria-hidden="true"></div>
+        </div>
+
+        <div class="controls">
+          <button id="startBtn" class="btn start" aria-pressed="false" title="Start / Pause (Space)">
+            <span class="label">Start</span>
+          </button>
+
+          <div class="mid-controls">
+            <button id="lapBtn" class="btn secondary" disabled aria-disabled="true" title="Lap (Enter / L)">Lap</button>
+            <button id="resetBtn" class="btn ghost" disabled aria-disabled="true" title="Reset (R)">Reset</button>
+          </div>
+
+          <div class="right-tools">
+            <button id="copyBtn" class="btn tiny" title="Copy laps">Copy</button>
+            <button id="exportBtn" class="btn tiny" title="Export CSV">Export</button>
+            <button id="drawerToggle" class="btn tiny" title="Show/Hide laps">Laps ▾</button>
+          </div>
+        </div>
+
+        <div class="meta-row">
+          <div class="meta"><span class="meta-key">State</span><span id="stateText" class="meta-val">Stopped</span></div>
+          <div class="meta"><span class="meta-key">Laps</span><span id="lapCount" class="meta-val">0</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- sliding lap drawer (open by default) -->
+    <aside id="lapDrawer" class="lap-drawer" aria-label="Lap times">
+      <div class="drawer-handle" id="drawerHandle" aria-hidden="true"></div>
+      <div class="drawer-header">
+        <h2>Laps</h2>
+        <div class="drawer-actions">
+          <button id="clearBtn" class="tiny ghost">Clear</button>
+        </div>
+      </div>
+      <ol id="lapsList" class="laps" aria-live="polite"></ol>
+    </aside>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
